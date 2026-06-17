@@ -38,6 +38,6 @@ export type ForexTariff = {
   title: string;
   datacenterId: number;
   datacenterName: string;
-  specs: { name: string; value: string }[];
+  details: { name: string; value: string }[];
   prices: { period: number; cost: number }[];
 };
