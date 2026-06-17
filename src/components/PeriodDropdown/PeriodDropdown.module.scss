@@ -23,7 +23,7 @@
 
 .trigger,
 .list {
-  background: rgba(255, 255, 255, 0.06);
+  background: $bg-switch;
   border: $border-dropdown;
   border-radius: $radius-pill;
 }
@@ -71,6 +71,8 @@
   margin: 0;
   padding: $space-sm 0;
   list-style: none;
+  // $bg-switch flattened over the page bg (#261433) so it stays opaque, no alpha
+  background: linear-gradient(90deg, #3c2c47 0%, #32213d 100%);
 }
 
 .option {

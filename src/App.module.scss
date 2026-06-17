@@ -1,0 +1,51 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+.page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $space-lg $space-md;
+
+  @include tablet-up {
+    padding: $space-xl;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  width: 100%;
+  max-width: $bp-wide;
+
+  @include desktop-up {
+    gap: $space-xl;
+  }
+}
+
+.heading {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+
+  @include tablet-up {
+    font-size: 48px;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: $space-md;
+
+  @include tablet-up {
+    gap: $space-lg;
+  }
+}
+
+.status {
+  font-size: 16px;
+  color: $color-text-muted;
+}

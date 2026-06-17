@@ -27,5 +27,5 @@ export function formatPrice(cost: number): string {
 }
 
 export function getPeriodLabel(period: number): string {
-    return PERIODS.find((p) => p.value === period)?.short ?? '';
-  }
+  return PERIODS.find((p) => p.value === period)?.short ?? '';
+}

@@ -8,6 +8,9 @@ $bg-switch: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(153, 153, 1
 $bg-section-strip: linear-gradient(90deg, rgba(83, 45, 114, 0.1) 0%, rgba(83, 45, 114, 0.26) 50%, rgba(83, 45, 114, 0.1) 100%);
 $bg-tag: rgba(145, 62, 245, 0.2);
 $bg-best-choice: linear-gradient(91.45deg, #ff4ab7 -5.07%, #c830b9 114.33%);
+$bg-color-dropdown: rgba(154, 66, 232, 1);
+$bg-color-dropdown-item: linear-gradient(90.03deg, rgba(249, 240, 237, 0.3) -0.01%, rgba(204, 203, 211, 0.16) 53.84%, rgba(225, 220, 223, 0.3) 99.04%);
+
 
 // colors
 $color-accent: rgba(255, 74, 183, 1); // pink: price, buttons
@@ -29,6 +32,7 @@ $blur-spec-strip: blur(12px);
 // radius
 $radius-full: 100px;
 $radius-card: 32px;
+$radius-md: 16px;
 $radius-pill: 10px;
 $radius-tag: 8px;
 $radius-sm: 6px;

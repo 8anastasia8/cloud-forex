@@ -2,6 +2,7 @@
 
 .switch {
     display: inline-flex;
+    flex-wrap: wrap;
     gap: $space-xs;
     padding: 6px;
     background: $bg-switch;
