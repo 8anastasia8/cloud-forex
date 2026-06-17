@@ -38,11 +38,15 @@ function parseApiResponse(data: unknown): ForexTariffsApiResponse {
 }
 
 function normalizeTariff(elem: ApiTariffElement): ForexTariff {
+  const cpuTag = elem.flabel.tag.find((t) => t.$.startsWith('cpu'));
+  const cpuBrand = cpuTag ? decodeURIComponent(cpuTag.$).split(':')[1] ?? '' : '';
+
   return {
     id: elem.id.$,
     title: elem.title.$,
     datacenterId: Number(elem.datacenter.id.$),
     datacenterName: elem.datacenter.value.$,
+    cpuBrand,
     details: elem.detail.map((d) => ({
       name: d.name.$,
       value: d.value.$,

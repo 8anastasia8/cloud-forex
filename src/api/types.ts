@@ -19,6 +19,9 @@ export type ApiTariffElement = {
     id: ApiValue<string>;
     value: ApiValue<string>;
   };
+  flabel: {
+    tag: ApiValue<string>[];
+  };
   detail: ApiTariffDetail[];
   prices: {
     price: ApiTariffPrice[];
@@ -38,6 +41,7 @@ export type ForexTariff = {
   title: string;
   datacenterId: number;
   datacenterName: string;
+  cpuBrand: string;
   details: { name: string; value: string }[];
   prices: { period: number; cost: number }[];
 };
