@@ -11,36 +11,37 @@ type UseTariffsResult = {
 const tariffsCache = new Map<number, ForexTariff[]>();
 
 export function useTariffs(datacenterId: number): UseTariffsResult {
-  const [tariffs, setTariffs] = useState<ForexTariff[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [syncedId, setSyncedId] = useState(datacenterId);
+  const [tariffs, setTariffs] = useState<ForexTariff[]>(
+    () => tariffsCache.get(datacenterId) ?? [],
+  );
+  const [loading, setLoading] = useState(() => !tariffsCache.has(datacenterId));
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  // Re-sync state from the cache during render when the datacenter changes.
+  if (datacenterId !== syncedId) {
     const cached = tariffsCache.get(datacenterId);
-    if (cached) {
-      setTariffs(cached);
-      setError(null);
-      setLoading(false);
-      return;
-    }
+    setSyncedId(datacenterId);
+    setTariffs(cached ?? []);
+    setLoading(!cached);
+    setError(null);
+  }
+
+  useEffect(() => {
+    if (tariffsCache.has(datacenterId)) return;
 
     let ignore = false;
-
-    setLoading(true);
-    setError(null);
 
     fetchTariffs([datacenterId])
       .then((data) => {
         if (ignore) return;
         tariffsCache.set(datacenterId, data);
         setTariffs(data);
+        setLoading(false);
       })
       .catch((err: unknown) => {
         if (ignore) return;
-        const message = err instanceof Error ? err.message : 'Unknown error';
-        setError(message);
-      })
-      .finally(() => {
+        setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
       });
 

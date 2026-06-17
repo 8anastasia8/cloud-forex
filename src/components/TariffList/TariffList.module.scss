@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+}
+
+.list > * {
+  flex: 1 1 100%;
+  min-width: 0; 
+
+  @include tablet-up {
+    flex: 1 1 calc(50% - #{$space-md} / 2);
+  }
+
+  @include desktop-up {
+    flex: 1 1 calc(25% - #{$space-md} * 3 / 4);
+  }
+}
