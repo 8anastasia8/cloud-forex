@@ -1,0 +1,42 @@
+// backgrounds
+$bg-page: radial-gradient(45.44% 58.3% at 50% 17.62%, #261433 0%, #160720 100%);
+$bg-card: linear-gradient(92.6deg, rgba(190, 78, 255, 0.06) 37.84%, rgba(255, 74, 183, 0.06) 100%);
+$bg-card-highlighted: rgba(197, 64, 146, 1); // Cloud Forex 4
+$bg-card-inner: rgba(67, 43, 84, 1);
+$bg-spec-strip: rgba(255, 237, 248, 0.8); // light spec pill
+$bg-switch: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(153, 153, 153, 0.1) 100%);
+$bg-section-strip: linear-gradient(90deg, rgba(83, 45, 114, 0.1) 0%, rgba(83, 45, 114, 0.26) 50%, rgba(83, 45, 114, 0.1) 100%);
+$bg-tag: rgba(145, 62, 245, 0.2);
+$bg-best-choice: linear-gradient(91.45deg, #ff4ab7 -5.07%, #c830b9 114.33%);
+
+// colors
+$color-accent: rgba(255, 74, 183, 1); // pink: price, buttons
+$color-label: rgba(255, 245, 153, 1); // section labels
+$color-text: #ffffff;
+$color-text-muted: rgba(255, 255, 255, 0.6);
+
+// border
+$border-card: 1px solid rgba(190, 78, 255, 0.5);
+$border-switch: 1px solid rgba(153, 153, 153, 0.2);
+$border-dropdown: 1px solid rgba(255, 255, 255, 0.2);
+
+// effects
+$shadow-card: 0px 0px 48px 0px rgba(0, 0, 0, 0.45);
+$blur-spec-strip: blur(12px);
+
+// radii
+$radius-card: 20px;
+$radius-pill: 24px;
+$radius-tag: 8px;
+
+// spacing
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+
+// breakpoints
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
