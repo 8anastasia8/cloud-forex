@@ -43,7 +43,7 @@ function normalizeTariff(elem: ApiTariffElement): ForexTariff {
 
   return {
     id: elem.id.$,
-    title: elem.title.$,
+    title: elem.title.$.split('|')[0].trim(),
     datacenterId: Number(elem.datacenter.id.$),
     datacenterName: elem.datacenter.value.$,
     cpuBrand,

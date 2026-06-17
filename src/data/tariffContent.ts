@@ -4,6 +4,7 @@ export type TariffContent = {
   features: string[];
   suitableFor: string[];
   highlighted: boolean;
+  icon: string;
 };
 
 export const TARIFF_CONTENT: TariffContent[] = [
@@ -23,6 +24,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Старт автоматизации',
     ],
     highlighted: false,
+    icon: '/terminals/term-2.svg'
   },
   {
     terminals: 3,
@@ -40,6 +42,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Контроль рисков',
     ],
     highlighted: false,
+    icon: '/terminals/term-3.svg'
   },
   {
     terminals: 4,
@@ -56,6 +59,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Алгоритмическая торговля',
     ],
     highlighted: false,
+    icon: '/terminals/term-4.svg'
   },
   {
     terminals: 6,
@@ -71,5 +75,6 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Увеличенная нагрузка',
     ],
     highlighted: true,
+    icon: '/terminals/term-6.svg'
   },
 ];

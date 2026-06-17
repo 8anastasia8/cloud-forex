@@ -14,20 +14,25 @@ $color-accent: rgba(255, 74, 183, 1); // pink: price, buttons
 $color-label: rgba(255, 245, 153, 1); // section labels
 $color-text: #ffffff;
 $color-text-muted: rgba(255, 255, 255, 0.6);
+$color-icon: rgba(157, 146, 165, 1);
 
 // border
 $border-card: 1px solid rgba(190, 78, 255, 0.5);
 $border-switch: 1px solid rgba(153, 153, 153, 0.2);
 $border-dropdown: 1px solid rgba(255, 255, 255, 0.2);
+$border-buy-action: 1px solid rgba(255, 74, 183, 1);
 
 // effects
 $shadow-card: 0px 0px 48px 0px rgba(0, 0, 0, 0.45);
 $blur-spec-strip: blur(12px);
 
 // radius
-$radius-card: 20px;
+$radius-full: 100px;
+$radius-card: 32px;
 $radius-pill: 10px;
 $radius-tag: 8px;
+$radius-sm: 6px;
+$radius-xs: 4px;
 
 // spacing
 $space-xs: 4px;

@@ -1,0 +1,312 @@
+@use "../../styles/variables" as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-lg;
+  background: $bg-card;
+  border: $border-card;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  color: $color-text;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 150, 241, 0) 0%, rgba(255, 150, 241, 1) 50%, rgba(255, 150, 241, 0) 100%);
+    filter: blur(2px);
+    pointer-events: none;
+    transition:
+      0.2s ease,
+      color 0.2s ease;
+  }
+
+  &:hover {
+    .cardHead {
+      background: $color-accent;
+    }
+    .priceValue {
+      color: $color-text;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(255, 150, 241, 0) 0%, rgba(255, 150, 241, 1) 50%, rgba(255, 150, 241, 0) 100%);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+  }
+}
+
+.highlighted {
+  background: $bg-card-highlighted;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $space-xs $space-md;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: $radius-pill;
+  background: $bg-best-choice;
+  color: $color-text;
+  white-space: nowrap;
+}
+
+.cardHead {
+  display: flex;
+  flex-direction: column;
+  padding: $space-lg;
+  background: $bg-card-inner;
+  border-radius: $radius-card;
+  gap: $space-md;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-sm;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.titleIcon {
+  flex-shrink: 0;
+  color: $color-text;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: $space-xs;
+}
+
+.priceValue {
+  font-size: 26px;
+  font-weight: 600;
+  color: $color-accent;
+  transition:
+    0.2s ease,
+    color 0.2s ease;
+}
+
+.pricePeriod {
+  font-size: 14px;
+  color: $color-text;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-sm $space-md;
+  border-radius: $radius-full;
+  background: $bg-spec-strip;
+  backdrop-filter: $blur-spec-strip;
+  color: #1e132d;
+}
+
+.detailsList {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: $space-xs;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.detailsItem:not(:last-child)::after {
+  content: "·";
+  margin-left: $space-xs;
+}
+
+.detailsInfo {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #1e132d;
+}
+
+.detailsInfoIcon {
+  display: block;
+  color: $color-icon;
+}
+
+.terminals {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  background: $bg-section-strip;
+  border-radius: $radius-sm;
+  padding: $space-sm $space-md;
+}
+
+.terminalsIcon {
+  color: $color-text;
+}
+
+.terminalsLabel {
+  flex: 1;
+  font-size: 15px;
+}
+
+.terminalsCount {
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-text-muted;
+}
+
+.terminalsHelp {
+  flex-shrink: 0;
+  color: $color-text-muted;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.featuresSection {
+  min-height: 160px;
+}
+
+.suitableSection {
+  min-height: 120px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-sm;
+  font-size: 14px;
+}
+
+.featureIcon {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: $color-label;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: $space-xs $space-sm;
+  font-size: 13px;
+  border-radius: $radius-xs;
+  background: $bg-tag;
+  color: $color-text;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+
+  &:hover {
+    .cart {
+      background: $color-text;
+      color: $color-accent;
+      border-color: $color-text;
+    }
+
+    .buy {
+      background: $color-accent;
+      color: $color-text;
+    }
+  }
+}
+
+.buy {
+  flex: 1;
+  padding: $space-md;
+  border: $border-buy-action;
+  border-radius: $radius-full;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $color-accent;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.cart {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 14px;
+  border: $border-buy-action;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: $color-accent;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.cartIcon {
+  display: block;
+}
