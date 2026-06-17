@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: $space-md;
-  padding: $space-lg;
+  padding: $space-md;
   background: $bg-card;
   border: $border-card;
   border-radius: $radius-card;
@@ -37,22 +37,21 @@
     }
 
     &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
       width: 50%;
       height: 4px;
-      background: linear-gradient(90deg, rgba(255, 150, 241, 0) 0%, rgba(255, 150, 241, 1) 50%, rgba(255, 150, 241, 0) 100%);
       filter: blur(4px);
-      pointer-events: none;
     }
   }
 }
 
 .highlighted {
-  background: $bg-card-highlighted;
+  .cardHead {
+    background: $bg-card-highlighted;
+  }
+
+  .priceValue {
+    color: $color-text;
+  }
 }
 
 .badge {
@@ -73,15 +72,19 @@
 .cardHead {
   display: flex;
   flex-direction: column;
-  padding: $space-lg;
+  padding: 10px;
   background: $bg-card-inner;
-  border-radius: $radius-card;
+  border-radius: $radius-md;
   gap: $space-md;
   transition:
     background 0.2s ease,
     color 0.2s ease;
 }
-
+.priceHeader{
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
 .head {
   display: flex;
   align-items: flex-start;
@@ -89,15 +92,20 @@
   gap: $space-sm;
 }
 
-.title {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 600;
+.headIcon {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: auto;
+  object-fit: contain;
+  object-position: top right;
 }
 
-.titleIcon {
-  flex-shrink: 0;
-  color: $color-text;
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
 }
 
 .price {
@@ -107,7 +115,8 @@
 }
 
 .priceValue {
-  font-size: 26px;
+  font-size: 24px;
+  line-height: 1;
   font-weight: 600;
   color: $color-accent;
   transition:
@@ -116,35 +125,25 @@
 }
 
 .pricePeriod {
-  font-size: 14px;
+  font-size: 16px;
   color: $color-text;
 }
 
 .details {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $space-sm $space-md;
+  padding: $space-xs $space-sm;
   border-radius: $radius-full;
   background: $bg-spec-strip;
   backdrop-filter: $blur-spec-strip;
   color: #1e132d;
 }
 
-.detailsList {
-  display: flex;
+.detailsText {
   flex: 1;
-  flex-wrap: wrap;
-  gap: $space-xs;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 13px;
-}
-
-.detailsItem:not(:last-child)::after {
-  content: "·";
-  margin-left: $space-xs;
+  font-size: 11px;
 }
 
 .detailsInfo {
@@ -155,6 +154,17 @@
   background: transparent;
   cursor: pointer;
   color: #1e132d;
+}
+
+.detailsTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .detailsInfoIcon {
@@ -177,11 +187,11 @@
 
 .terminalsLabel {
   flex: 1;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .terminalsCount {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: $color-text-muted;
 }
@@ -215,6 +225,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: $color-text-muted;
 }
 
 .features {
@@ -259,6 +270,7 @@
 .actions {
   display: flex;
   align-items: center;
+  gap: $space-sm;
   margin-top: auto;
 
   &:hover {
@@ -280,7 +292,7 @@
   padding: $space-md;
   border: $border-buy-action;
   border-radius: $radius-full;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;

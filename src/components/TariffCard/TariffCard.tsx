@@ -7,6 +7,9 @@ import { QuestionIcon } from "../icons/QuestionIcon";
 import styles from "./TariffCard.module.scss";
 import { DropDownIcon } from "../icons/DropDownIcon";
 import { TerminalIconMain } from "../icons/TerminalIconMain";
+import { DetailsDropdown } from "../DetailsDropdown/DetailsDropdown";
+import { buildSpecSummary, getDropdownItems } from "../../utils/tariffDetails";
+import { useState } from "react";
 
 type TariffCardProps = {
   tariff: ForexTariff;
@@ -14,27 +17,14 @@ type TariffCardProps = {
   period: number;
 };
 
-function getDetailValue(tariff: ForexTariff, name: string): string {
-  return tariff.details.find((detail) => detail.name === name)?.value ?? "";
-}
-
-function getNumber(value: string): string {
-  return value.split(" ")[0];
-}
-
-function buildDetailsText(tariff: ForexTariff, terminals: number): string {
-  const ram = getNumber(getDetailValue(tariff, "Memory"));
-  const nvme = getNumber(getDetailValue(tariff, "Disk space"));
-  const speed = getDetailValue(tariff, "Port speed");
-
-  return `${terminals} TRM · ${ram} RAM · ${nvme} NVMe · ${speed}`;
-}
-
 export function TariffCard({ tariff, content, period }: TariffCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownItems = getDropdownItems(tariff);
   const price = getPriceForPeriod(tariff, period);
-  const detailsText = buildDetailsText(tariff, content.terminals);
-
-  const cardClassName = content.highlighted ? `${styles.card} ${styles.highlighted}` : styles.card;
+  const specSummary = buildSpecSummary(tariff, content.terminals);
+  const cardClassName = content.highlighted
+    ? `${styles.card} ${styles.highlighted}`
+    : styles.card;
 
   return (
     <article className={cardClassName}>
@@ -42,7 +32,7 @@ export function TariffCard({ tariff, content, period }: TariffCardProps) {
 
       <div className={styles.cardHead}>
         <header className={styles.head}>
-          <div>
+          <div className={styles.priceHeader}>
             <h3 className={styles.title}>{tariff.title}</h3>
             <div className={styles.price}>
               {price !== null ? (
@@ -56,14 +46,17 @@ export function TariffCard({ tariff, content, period }: TariffCardProps) {
             </div>
           </div>
 
-          <img src={content.icon} alt="" />
+          <img src={content.icon} alt="" className={styles.headIcon} />
         </header>
 
         <div className={styles.details}>
-          <span className={styles.detailsText}>{detailsText}</span>
-          <button type="button" className={styles.detailsInfo} aria-label="Details">
-            <DropDownIcon className={styles.detailsInfoIcon} />
-          </button>
+          <span className={styles.detailsText}>{specSummary}</span>
+          <div className={styles.detailsInfo} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+            <button type="button" aria-label="Details" aria-expanded={isOpen} className={styles.detailsTrigger} onClick={() => setIsOpen((prev) => !prev)}>
+              <DropDownIcon className={styles.detailsInfoIcon} />
+            </button>
+            <DetailsDropdown items={dropdownItems} isOpen={isOpen} />
+          </div>
         </div>
       </div>
 
