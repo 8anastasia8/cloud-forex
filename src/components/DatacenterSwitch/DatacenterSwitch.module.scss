@@ -1,0 +1,52 @@
+@use '../../styles/variables' as *;
+
+.switch {
+    display: inline-flex;
+    gap: $space-xs;
+    padding: 6px;
+    background: $bg-switch;
+    border: $border-switch;
+    border-radius: $radius-pill;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm;
+    border: none;
+    background: transparent;
+    color: $color-text-muted;
+    border-radius: $radius-tag;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 2px;
+    }
+}
+
+.active,
+.active:hover {
+  background: linear-gradient(86.53deg, #b3b6c8 0%, #ffffff 100%);
+  color: #1e132d;
+}
+
+.root {
+    display: inline-flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+  
+  .label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $color-label;
+  }
