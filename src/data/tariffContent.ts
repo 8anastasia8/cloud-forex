@@ -3,6 +3,7 @@ export type TariffContent = {
   bestChoice: boolean;
   features: string[];
   suitableFor: string[];
+  highlighted: boolean;
 };
 
 export const TARIFF_CONTENT: TariffContent[] = [
@@ -21,6 +22,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Начальный уровень',
       'Старт автоматизации',
     ],
+    highlighted: false,
   },
   {
     terminals: 3,
@@ -37,6 +39,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Автоторговля',
       'Контроль рисков',
     ],
+    highlighted: false,
   },
   {
     terminals: 4,
@@ -52,6 +55,7 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Тестирование стратегий',
       'Алгоритмическая торговля',
     ],
+    highlighted: false,
   },
   {
     terminals: 6,
@@ -66,5 +70,6 @@ export const TARIFF_CONTENT: TariffContent[] = [
       'Копирование сделок',
       'Увеличенная нагрузка',
     ],
+    highlighted: true,
   },
 ];
