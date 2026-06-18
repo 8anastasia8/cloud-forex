@@ -53,7 +53,7 @@ export function TariffCard({ tariff, content, period }: TariffCardProps) {
           <span className={styles.detailsText}>{specSummary}</span>
           <div className={styles.detailsInfo} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
             <button type="button" aria-label="Details" aria-expanded={isOpen} className={styles.detailsTrigger} onClick={() => setIsOpen((prev) => !prev)}>
-              <DropDownIcon className={styles.detailsInfoIcon} />
+              <DropDownIcon className={styles.detailsInfoIcon} open={isOpen}/>
             </button>
             <DetailsDropdown items={dropdownItems} isOpen={isOpen} />
           </div>
